@@ -211,7 +211,7 @@
        (alter-turtle turt-state alter-fn))))
 
 (defn end-fill
-  "Stop filling the area of turtle moves. Must be called start-fill."
+  "Stop filling the area of turtle moves. Must be called after start-fill."
   ([]
      (end-fill turtle))
   ([turt-state]
@@ -294,6 +294,29 @@
   ([turt-state]
      (setxy turt-state 0 0) 
      (setheading turt-state 90)))
+
+;;
+;; user shortcuts to basic logo commands. Each contains matching docstrings 
+;; and arglists so that the 'doc' macro mirrors the source functions
+;;
+
+(def ^{:doc (:doc (meta #'forward)) :arglists (:arglists (meta #'forward))} 
+  fd forward)
+
+(def ^{:doc (:doc (meta #'back)) :arglists (:arglists (meta #'back))} 
+  bk back)
+
+(def ^{:doc (:doc (meta #'left)) :arglists (:arglists (meta #'left))} 
+  lt left)
+
+(def ^{:doc (:doc (meta #'right)) :arglists (:arglists (meta #'right))} 
+  rt right)
+
+(def ^{:doc (:doc (meta #'penup)) :arglists (:arglists (meta #'penup))} 
+  pu penup)
+
+(def ^{:doc (:doc (meta #'pendown)) :arglists (:arglists (meta #'pendown))} 
+  pd pendown)
 
 ;;
 ;; fns - (Quil-based) rendering and graphics
